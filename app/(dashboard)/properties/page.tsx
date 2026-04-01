@@ -300,7 +300,7 @@ export default function PropertiesPage() {
                     {/* Prix */}
                     {p.estimatedPrice && (
                       <p className="text-sm font-bold text-obsidian mb-2">
-                        {formatPrice(p.estimatedPrice, (p.country ?? "MA") as "MA" | "BE")}
+                        {formatPrice(p.estimatedPrice, "BE")}
                       </p>
                     )}
 

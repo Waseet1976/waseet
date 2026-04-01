@@ -40,7 +40,7 @@ function buildInfoContent(p: MapProperty): string {
   const stageLabel = stageConf?.label ?? p.pipelineStage;
   const stageColor = stageConf?.color ?? "#6B7280";
   const priceStr   = p.estimatedPrice
-    ? formatPrice(p.estimatedPrice, (p.country ?? "MA") as "MA" | "BE")
+    ? formatPrice(p.estimatedPrice, "BE")
     : "";
 
   return `

@@ -128,7 +128,7 @@ export async function batchGeocodeProperties(
         const coords = await geocodeAddress(
           p.address ?? "",
           p.city,
-          p.country ?? "MA"
+          "BE"
         );
 
         if (!coords) return { propertyId: p.id, success: false };
