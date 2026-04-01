@@ -81,7 +81,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               'focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/15',
               'disabled:bg-sand disabled:cursor-not-allowed',
               error && 'border-danger focus:border-danger focus:ring-danger/10',
-              icon && 'pl-10',
+              !!icon && 'pl-10',
               className
             )}
             {...props}

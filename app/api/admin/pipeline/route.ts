@@ -7,7 +7,7 @@
 import { NextRequest, NextResponse }       from "next/server";
 import { prisma }                          from "@/lib/prisma";
 import { extractBearerToken, verifyToken } from "@/lib/auth";
-import type { PipelineStage }              from "@prisma/client";
+import type { PipelineStage, Prisma }     from "@prisma/client";
 
 const VALID_STAGES: string[] = [
   "DECLARED", "VALIDATED", "IN_REVIEW", "MANDATE_SIGNED",
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
   const stage = searchParams.get("stage") ?? "";
   const q     = searchParams.get("q")     ?? "";
 
-  const where: Parameters<typeof prisma.property.findMany>[0]["where"] = {};
+  const where: Prisma.PropertyWhereInput = {};
 
   if (stage && VALID_STAGES.includes(stage)) {
     where.pipelineStage = stage as PipelineStage;

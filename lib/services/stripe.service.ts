@@ -162,10 +162,10 @@ export async function getSubscriptionStatus(agencyId: string): Promise<Subscript
 
   return {
     status:            sub.status,
-    currentPeriodEnd:  sub.current_period_end
-      ? new Date(sub.current_period_end * 1000)
+    currentPeriodEnd:  (sub as unknown as { current_period_end?: number }).current_period_end
+      ? new Date((sub as unknown as { current_period_end: number }).current_period_end * 1000)
       : null,
-    cancelAtPeriodEnd: sub.cancel_at_period_end,
+    cancelAtPeriodEnd: (sub as unknown as { cancel_at_period_end?: boolean }).cancel_at_period_end ?? false,
     planId:            price?.id ?? null,
     subscriptionId:    sub.id,
   };

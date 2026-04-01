@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse }       from "next/server";
 import { prisma }                          from "@/lib/prisma";
 import { extractBearerToken, verifyToken } from "@/lib/auth";
-import type { AdminStatus }                from "@prisma/client";
+import type { AdminStatus, Prisma }       from "@prisma/client";
 
 const VALID_STATUSES: string[] = ["PENDING", "VALIDATED", "REJECTED"];
 
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
   const adminStatus = searchParams.get("adminStatus") ?? "";
   const q           = searchParams.get("q")           ?? "";
 
-  const where: Parameters<typeof prisma.property.findMany>[0]["where"] = {};
+  const where: Prisma.PropertyWhereInput = {};
 
   if (adminStatus && VALID_STATUSES.includes(adminStatus)) {
     where.adminStatus = adminStatus as AdminStatus;
