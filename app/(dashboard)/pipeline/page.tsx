@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { Building2, Star, RefreshCw, SlidersHorizontal, X } from "lucide-react";
+import { Star, RefreshCw, SlidersHorizontal, X } from "lucide-react";
 
 import { useAuth }            from "@/lib/hooks/useAuth";
-import { Badge }              from "@/components/ui/Badge";
 import { PIPELINE_STAGES }    from "@/lib/config";
 import { formatPrice }        from "@/lib/utils";
 import { cn }                 from "@/lib/utils/cn";
@@ -332,8 +331,6 @@ function KanbanCard({
   onDragEnd:   () => void;
   stageColor:  string;
 }) {
-  const cc = (property.country ?? "MA") as "MA" | "BE";
-
   return (
     <div
       draggable={canDrag}
@@ -374,7 +371,7 @@ function KanbanCard({
       {/* Prix */}
       {property.estimatedPrice && (
         <p className="text-xs font-bold text-charcoal mb-2">
-          {formatPrice(property.estimatedPrice, cc)}
+          {formatPrice(property.estimatedPrice, "BE")}
         </p>
       )}
 
