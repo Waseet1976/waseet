@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils/cn";
 export interface MapProperty {
   id:             string;
   reference:      string;
-  city:           string;
+  city:           string | null;
   neighborhood?:  string | null;
   latitude?:      number | null;
   longitude?:     number | null;
