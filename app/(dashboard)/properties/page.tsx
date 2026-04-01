@@ -344,7 +344,7 @@ export default function PropertiesPage() {
           )}
         >
           <PropertiesMap
-            properties={properties}
+            properties={properties.filter((p): p is PropertyItem & { city: string } => p.city !== null)}
             selectedId={selectedId}
             onSelect={(id) => setSelectedId((prev) => (prev === id ? null : id))}
             className="h-full rounded-2xl"
