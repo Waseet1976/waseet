@@ -6,7 +6,7 @@ import Link from "next/link";
 import {
   ArrowLeft, Star, MapPin, Ruler, Building2,
   Phone, Mail, User, Calendar, Eye, EyeOff,
-  ImageIcon, AlertTriangle, Copy, Check,
+  AlertTriangle, Copy, Check,
 } from "lucide-react";
 
 import { useAuth }          from "@/lib/hooks/useAuth";
@@ -241,7 +241,7 @@ export default function PropertyDetailPage() {
                 <p className="text-3xl font-bold text-white">
                   {formatPrice(
                     property.estimatedPrice,
-                    (property.country ?? "MA") as "MA" | "BE"
+                    "BE"
                   )}
                 </p>
               )}
@@ -253,7 +253,7 @@ export default function PropertyDetailPage() {
                       ·{" "}
                       {formatPrice(
                         Math.round(property.estimatedPrice / property.surfaceSqm),
-                        (property.country ?? "MA") as "MA" | "BE"
+                        "BE"
                       )}
                       /m²
                     </span>
@@ -428,14 +428,14 @@ export default function PropertyDetailPage() {
                 <div className="flex items-center justify-between">
                   <p className="text-sm text-charcoal-muted">Montant estimé</p>
                   <p className="text-lg font-bold text-[#635BFF]">
-                    {formatPrice(commission.estimatedAmount, (property.country ?? "MA") as "MA" | "BE")}
+                    {formatPrice(commission.estimatedAmount, "BE")}
                   </p>
                 </div>
                 {commission.validatedAmount && (
                   <div className="flex items-center justify-between">
                     <p className="text-sm text-charcoal-muted">Montant validé</p>
                     <p className="text-lg font-bold text-success">
-                      {formatPrice(commission.validatedAmount, (property.country ?? "MA") as "MA" | "BE")}
+                      {formatPrice(commission.validatedAmount, "BE")}
                     </p>
                   </div>
                 )}
@@ -464,16 +464,15 @@ export default function PropertyDetailPage() {
                 </p>
                 {(() => {
                   const calc = calculateCommission(property.estimatedPrice!);
-                  const cc   = (property.country ?? "MA") as "MA" | "BE";
                   return (
                     <div className="bg-sand rounded-xl p-4 space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span className="text-charcoal-muted">Prix × 2.5% (agence)</span>
-                        <span className="font-medium">{formatPrice(calc.agencyCommission, cc)}</span>
+                        <span className="font-medium">{formatPrice(calc.agencyCommission, "BE")}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-charcoal-muted">× 40% (part apporteur)</span>
-                        <span className="font-bold text-[#635BFF]">{formatPrice(calc.apporteurShare, cc)}</span>
+                        <span className="font-bold text-[#635BFF]">{formatPrice(calc.apporteurShare, "BE")}</span>
                       </div>
                       <div className="pt-2 border-t border-sand-dark flex justify-between">
                         <span className="text-charcoal-muted text-xs">Estimation non garantie</span>
