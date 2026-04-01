@@ -352,3 +352,5 @@ Vercel active HTTPS automatiquement avec Let's Encrypt lors de l'ajout du domain
 ## Licence
 
 Propriétaire — © 2024 Waseet. Tous droits réservés.
+#   r e b u i l d  
+ 
