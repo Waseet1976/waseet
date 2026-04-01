@@ -1,0 +1,79 @@
+# Instructions pour Claude — À lire AVANT tout
+
+## RÈGLE ABSOLUE N°1
+Avant de faire quoi que ce soit dans ce projet,
+lis TOUJOURS CONTEXT.md en premier (à la racine).
+
+Il contient :
+- L'état exact du projet
+- Les fichiers déjà créés
+- Les règles métier critiques
+- Le design system
+- Les erreurs connues
+- L'architecture complète
+
+## FORMAT DE RÉPONSE ATTENDU
+1. Confirme brièvement que tu as lu CONTEXT.md
+2. Dis ce que tu vas faire (1-2 lignes)
+3. Fais les modifications
+4. Résume ce qui a été fait
+
+## APRÈS CHAQUE SESSION
+Mets à jour CONTEXT.md :
+- Coche les prompts complétés [ ] → [x]
+- Ajoute les nouveaux fichiers dans la section architecture
+- Note les erreurs rencontrées
+- Ajoute les règles métier découvertes
+
+Pour mettre à jour automatiquement :
+  node scripts/update-context.js --prompt="NOM_DU_PROMPT"
+
+## CONVENTIONS CODE
+
+### Imports
+- cn() → toujours depuis "@/lib/utils/cn"
+- formatPrice, formatDate, etc. → depuis "@/lib/utils"
+- prisma → depuis "@/lib/prisma"
+- auth helpers → depuis "@/lib/auth"
+- config/constantes → depuis "@/lib/config"
+
+### Composants
+- Toujours "use client" si hooks React ou events
+- Server Components pour les pages avec fetch de données
+- Pas de "use client" si pas nécessaire
+
+### API Routes
+- Toujours vérifier le token JWT avec extractBearerToken + verifyToken
+- Retourner { error: string } avec le bon status HTTP
+- Utiliser prisma depuis "@/lib/prisma" (pas "@/lib/prisma/client")
+
+### Zod v4
+- Utiliser z.email() et non z.string().email() (déprécié)
+- Pattern : z.string().trim().toLowerCase().pipe(z.email())
+- Pas de .default() dans les schémas RHF → utiliser defaultValues
+
+### Prisma
+- Version 5.22.0 (Node 20.12.1 incompatible avec v7)
+- Import : import { prisma } from "@/lib/prisma"
+
+### TypeScript
+- Strict mode activé
+- Pas de "any" sauf cas justifié avec commentaire
+- Types Prisma importés depuis "@prisma/client"
+
+## RÈGLES MÉTIER À RESPECTER
+1. declaredAt → new Date() côté SERVEUR uniquement
+2. duplicateKey → buildDuplicateKey(country, city, surface, price)
+3. isPriority → true si premier déclarant de ce bien
+4. Pipeline → sens unique (jamais en arrière)
+5. Commission auto → quand pipelineStage = DEED_SIGNED
+6. Bonus parrainage → 2500 MAD quand commission filleul = PAID
+7. AdminStatus → seul ADMIN ou AGENCY peut valider
+
+## DESIGN À RESPECTER
+- Fond pages : bg-sand (#F5EFE0)
+- Sidebar : bg-charcoal (#1C1C1A), 260px
+- Accents : gold (#C9973A)
+- Cards : bg-white, rounded-2xl, shadow légère
+- Boutons primaires : bg-gold, text-white
+- Ne pas modifier tailwind.config.ts sans raison explicite

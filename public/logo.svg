@@ -1,0 +1,14 @@
+<svg width="420" height="110" viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10,10)">
+    <path d="M0 20 L20 90 L45 45 L70 90 L90 20 L75 20 L55 65 L45 45 L35 65 L15 20 Z" fill="#4C45E0"/>
+    <path d="M45 45 L70 90 L90 20 L75 20 Z" fill="#000000"/>
+  </g>
+  <text x="120" y="75"
+        font-family="Inter, Helvetica, Arial, sans-serif"
+        font-size="48"
+        font-weight="800"
+        fill="#4C45E0"
+        letter-spacing="1.5">
+    ASEET
+  </text>
+</svg>
