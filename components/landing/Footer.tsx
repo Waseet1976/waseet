@@ -55,10 +55,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "Se connecter",     href: "/login"    },
-                { label: "S'inscrire",       href: "/register" },
-                { label: "Mentions légales", href: "#"         },
-                { label: "CGU",              href: "#"         },
+                { label: "Se connecter",     href: "/login"                    },
+                { label: "S'inscrire",       href: "/register"                 },
+                { label: "Mentions légales", href: "/legal/mentions-legales"   },
+                { label: "CGU",              href: "/legal/cgu"                },
+                { label: "Confidentialité",  href: "/legal/confidentialite"    },
               ].map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="text-sm text-charcoal-muted hover:text-white transition-colors">
