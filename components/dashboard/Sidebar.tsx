@@ -31,7 +31,7 @@ const NAV: Record<string, NavItem[]> = {
   DEAL_FINDER: [
     { href: "/dashboard",      label: "Dashboard",     icon: LayoutDashboard, exact: true },
     { href: "/declare",        label: "Déclarer un bien", icon: PlusCircle },
-    { href: "/my-properties",  label: "Mes biens",     icon: Building2 },
+    { href: "/properties",     label: "Mes biens",     icon: Building2 },
     { href: "/commissions",    label: "Commissions",   icon: Banknote },
     { href: "/referral",       label: "Parrainage",    icon: Users },
   ],
