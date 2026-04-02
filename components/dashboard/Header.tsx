@@ -159,7 +159,7 @@ export function Header() {
                 </div>
 
                 <Link
-                  href="/settings"
+                  href="/profile"
                   onClick={() => setDropOpen(false)}
                   className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-charcoal hover:bg-sand-light hover:text-black transition-colors"
                 >
