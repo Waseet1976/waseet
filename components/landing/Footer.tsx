@@ -37,7 +37,7 @@ export default function Footer() {
                 { label: "Fonctionnalités", href: "#advantages" },
                 { label: "Comment ça marche", href: "#how" },
                 { label: "Simulateur", href: "#calc" },
-                { label: "Sécurité", href: "#" },
+                { label: "Sécurité", href: "#securite" },
               ].map((l) => (
                 <li key={l.label}>
                   <a href={l.href} className="text-sm text-charcoal-muted hover:text-white transition-colors">

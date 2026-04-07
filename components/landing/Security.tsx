@@ -25,7 +25,7 @@ const items = [
 
 export default function Security() {
   return (
-    <section className="py-24 px-5 sm:px-8 bg-black text-white overflow-hidden relative">
+    <section id="securite" className="py-24 px-5 sm:px-8 bg-black text-white overflow-hidden relative">
       {/* Decorative glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#635BFF]/10 rounded-full blur-3xl pointer-events-none" />
 

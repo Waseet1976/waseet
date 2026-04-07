@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 
 export default function Hero() {
@@ -27,18 +26,18 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Link
+          <a
             href="/signup"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#635BFF] hover:bg-[#4C45E0] text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-[#635BFF]/25 hover:shadow-[#635BFF]/40"
           >
             Créer un compte <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
+          </a>
+          <a
             href="/login"
             className="inline-flex items-center justify-center px-8 py-3.5 bg-white border border-sand-dark text-black text-sm font-semibold rounded-xl hover:bg-sand-light transition-colors"
           >
             Se connecter
-          </Link>
+          </a>
         </div>
 
         {/* Stats */}

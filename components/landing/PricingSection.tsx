@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 const checkIcon = (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -83,10 +84,10 @@ const plans: Plan[] = [
 ]
 
 export default function PricingSection() {
-  const [hovered, setHovered] = useState<string | null>(null)
+  const [, setHovered] = useState<string | null>(null)
 
   return (
-    <section id="tarification" className="bg-sand py-24 px-6">
+    <section id="offres" className="bg-sand py-24 px-6">
       {/* En-tête */}
       <div className="max-w-3xl mx-auto text-center mb-14">
         <div className="inline-block bg-[#635BFF]/10 border border-[#635BFF]/25 rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase text-[#635BFF] mb-5">
@@ -117,12 +118,12 @@ export default function PricingSection() {
             </div>
           </div>
         </div>
-        <a
+        <Link
           href="/signup"
           className="text-xs font-semibold text-white/70 border border-white/15 rounded-lg px-4 py-2 hover:border-[#635BFF] hover:text-[#635BFF] transition-all whitespace-nowrap shrink-0"
         >
           Créer un compte →
-        </a>
+        </Link>
       </div>
 
       {/* Séparateur offres pro */}
@@ -208,19 +209,19 @@ export default function PricingSection() {
 
             {/* CTA */}
             {plan.ctaStyle === 'primary' ? (
-              <a
-                href="/signup?plan=pro"
+              <Link
+                href="/signup?offre=pro"
                 className="block w-full text-center bg-gradient-to-r from-[#635BFF] to-[#8680FF] text-white font-semibold text-sm rounded-xl py-3.5 px-6 transition-all hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(99,91,255,0.35)] hover:shadow-[0_6px_20px_rgba(99,91,255,0.45)]"
               >
                 {plan.cta}
-              </a>
+              </Link>
             ) : (
-              <a
-                href="/signup?plan=free"
+              <Link
+                href="/signup?offre=gratuit"
                 className="block w-full text-center border border-gray-200 text-gray-600 font-semibold text-sm rounded-xl py-3.5 px-6 transition-all hover:border-[#635BFF] hover:text-[#635BFF] hover:bg-[#635BFF]/5"
               >
                 {plan.cta}
-              </a>
+              </Link>
             )}
           </div>
         ))}

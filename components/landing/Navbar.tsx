@@ -51,18 +51,18 @@ export default function Navbar() {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-2">
-          <Link
+          <a
             href="/login"
             className="text-sm font-medium text-charcoal hover:text-obsidian transition-colors px-4 py-2 rounded-xl hover:bg-sand"
           >
             Se connecter
-          </Link>
-          <Link
+          </a>
+          <a
             href="/signup"
             className="text-sm font-semibold text-white bg-[#635BFF] hover:bg-[#4C45E0] transition-colors px-5 py-2.5 rounded-xl shadow-sm"
           >
             Essai gratuit
-          </Link>
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -89,18 +89,18 @@ export default function Navbar() {
             </a>
           ))}
           <div className="flex flex-col gap-2 pt-4 border-t border-gray-100 mt-3">
-            <Link
+            <a
               href="/login"
               className="text-sm font-medium text-center py-2.5 border border-sand-dark rounded-xl hover:bg-sand-light transition-colors"
             >
               Se connecter
-            </Link>
-            <Link
+            </a>
+            <a
               href="/signup"
               className="text-sm font-semibold text-center text-white bg-[#635BFF] hover:bg-[#4C45E0] py-2.5 rounded-xl transition-colors"
             >
               Essai gratuit
-            </Link>
+            </a>
           </div>
         </div>
       )}

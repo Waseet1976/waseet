@@ -59,11 +59,6 @@
 
   "redirects": [
     {
-      "source": "/dashboard",
-      "destination": "/",
-      "permanent": false
-    },
-    {
       "source": "/admin/login",
       "destination": "/login",
       "permanent": true

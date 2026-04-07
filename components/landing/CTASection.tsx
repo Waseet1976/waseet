@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
@@ -20,18 +19,18 @@ export default function CTASection() {
               Créez votre compte et déclarez votre première opportunité en quelques minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
+              <a
                 href="/signup"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-[#635BFF] font-semibold text-sm rounded-xl hover:bg-sand-light transition-colors shadow-xl"
               >
                 Créer un compte <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/login"
                 className="inline-flex items-center justify-center px-8 py-3.5 border border-white/30 text-white font-semibold text-sm rounded-xl hover:bg-white/10 transition-colors"
               >
                 Se connecter
-              </Link>
+              </a>
             </div>
             <p className="text-white/40 text-xs mt-6">
               Aucune carte de crédit requise · Accès immédiat
