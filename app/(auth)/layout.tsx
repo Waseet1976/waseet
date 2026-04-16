@@ -47,9 +47,9 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <footer className="mt-10 text-center text-xs text-charcoal-muted space-x-4">
         <span>© {new Date().getFullYear()} Waseet</span>
         <span>·</span>
-        <a href="/terms"   className="hover:text-[#635BFF] transition-colors">CGU</a>
+        <a href="/legal/cgu"              className="hover:text-[#635BFF] transition-colors">CGU</a>
         <span>·</span>
-        <a href="/privacy" className="hover:text-[#635BFF] transition-colors">Confidentialité</a>
+        <a href="/legal/confidentialite" className="hover:text-[#635BFF] transition-colors">Confidentialité</a>
       </footer>
     </div>
   );

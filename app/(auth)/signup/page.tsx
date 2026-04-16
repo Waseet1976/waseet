@@ -359,11 +359,11 @@ function SignupForm() {
               </div>
               <span className="text-sm text-charcoal leading-snug">
                 J&apos;accepte les{" "}
-                <Link href="/terms" className="text-[#635BFF] hover:text-[#4C45E0] font-medium" target="_blank">
+                <Link href="/legal/cgu" className="text-[#635BFF] hover:text-[#4C45E0] font-medium" target="_blank">
                   conditions générales d&apos;utilisation
                 </Link>{" "}
                 et la{" "}
-                <Link href="/privacy" className="text-[#635BFF] hover:text-[#4C45E0] font-medium" target="_blank">
+                <Link href="/legal/confidentialite" className="text-[#635BFF] hover:text-[#4C45E0] font-medium" target="_blank">
                   politique de confidentialité
                 </Link>
               </span>

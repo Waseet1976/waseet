@@ -55,46 +55,136 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Dashboard preview */}
+      {/* ── Dashboard preview ──────────────────────────────────────────── */}
       <div className="max-w-5xl mx-auto mt-16">
-        <div className="bg-white rounded-2xl border border-sand-dark shadow-2xl shadow-black/8 p-5 sm:p-6">
-          {/* Window dots */}
-          <div className="flex items-center gap-1.5 mb-5">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400" />
-            <div className="w-3 h-3 rounded-full bg-green-400" />
-            <div className="ml-3 h-5 flex-1 max-w-xs bg-sand rounded-full" />
+        <div className="rounded-2xl border border-[#e8e4de] shadow-[0_24px_64px_-12px_rgba(0,0,0,0.13)] overflow-hidden">
+
+          {/* Browser chrome */}
+          <div className="bg-[#f3f1ee] border-b border-[#e8e4de] px-4 py-3 flex items-center gap-3">
+            <div className="flex items-center gap-1.5 flex-shrink-0">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#d9d4cc]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#d9d4cc]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#d9d4cc]" />
+            </div>
+            <div className="flex-1 flex justify-center">
+              <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-1.5 border border-[#e8e4de] w-full max-w-xs">
+                <svg className="w-3 h-3 text-[#635BFF] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-[11px] text-[#9d9890] font-medium">app.waseet.be/dashboard</span>
+              </div>
+            </div>
           </div>
 
-          {/* KPI row */}
-          <div className="grid grid-cols-3 gap-3 mb-3">
-            {[
-              { label: "Déclarations reçues", val: "47", color: "bg-[#635BFF]",  text: "text-[#635BFF]" },
-              { label: "Dossiers en cours",   val: "12", color: "bg-warning",  text: "text-warning" },
-              { label: "Commissions versées", val: "8",  color: "bg-emerald-500", text: "text-emerald-600" },
-            ].map((c) => (
-              <div key={c.label} className="bg-sand-light rounded-xl p-4">
-                <div className={`w-8 h-1.5 rounded-full ${c.color} mb-3`} />
-                <p className={`text-2xl font-bold ${c.text}`}>{c.val}</p>
-                <p className="text-xs text-charcoal-muted mt-0.5">{c.label}</p>
-              </div>
-            ))}
-          </div>
+          {/* Dashboard body */}
+          <div className="bg-[#faf9f7] p-5 sm:p-7">
 
-          {/* Pipeline rows */}
-          <div className="bg-sand-light rounded-xl p-4 space-y-3">
-            {[
-              { ref: "WS-2025-001", type: "Appartement", city: "Bruxelles", stage: "Mandat signé",      dot: "bg-[#635BFF]" },
-              { ref: "WS-2025-002", type: "Villa",        city: "Liège",     stage: "Compromis signé",  dot: "bg-warning" },
-              { ref: "WS-2025-003", type: "Terrain",      city: "Gand",      stage: "En vérification", dot: "bg-sand-dark"  },
-            ].map((row) => (
-              <div key={row.ref} className="flex items-center gap-3">
-                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${row.dot}`} />
-                <span className="text-xs font-mono font-bold text-[#635BFF] w-24 flex-shrink-0">{row.ref}</span>
-                <span className="text-xs text-charcoal-muted flex-1">{row.type} · {row.city}</span>
-                <span className="text-[11px] text-charcoal-muted hidden sm:block">{row.stage}</span>
+            {/* Dashboard header */}
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <p className="text-[13px] font-semibold text-[#1a1916]">Vue d'ensemble</p>
+                <p className="text-[11px] text-[#9d9890] mt-0.5">Avril 2025</p>
               </div>
-            ))}
+              <div className="flex items-center gap-1.5 bg-[#635BFF]/10 text-[#635BFF] text-[11px] font-semibold px-3 py-1.5 rounded-full border border-[#635BFF]/15">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#635BFF] animate-pulse inline-block" />
+                En direct
+              </div>
+            </div>
+
+            {/* KPI cards */}
+            <div className="grid grid-cols-3 gap-3 mb-4">
+              {[
+                {
+                  label:   "Déclarations reçues",
+                  val:     "47",
+                  trend:   "+12 ce mois",
+                  tColor:  "text-[#635BFF]",
+                  bgTrend: "bg-[#635BFF]/8",
+                },
+                {
+                  label:   "Dossiers en cours",
+                  val:     "12",
+                  trend:   "3 prioritaires",
+                  tColor:  "text-amber-600",
+                  bgTrend: "bg-amber-50",
+                },
+                {
+                  label:   "Commissions versées",
+                  val:     "8",
+                  trend:   "sur 12 clôturés",
+                  tColor:  "text-emerald-600",
+                  bgTrend: "bg-emerald-50",
+                },
+              ].map((c) => (
+                <div
+                  key={c.label}
+                  className="bg-white rounded-xl border border-[#ede9e3] p-3 sm:p-4 shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
+                >
+                  <p className="text-[22px] sm:text-2xl font-bold text-[#1a1916] leading-none">{c.val}</p>
+                  <p className="text-[10px] sm:text-[11px] text-[#9d9890] mt-1 leading-snug">{c.label}</p>
+                  <div className={`inline-flex items-center mt-2 px-2 py-0.5 rounded-full text-[10px] font-semibold ${c.bgTrend} ${c.tColor}`}>
+                    {c.trend}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Pipeline table */}
+            <div className="bg-white rounded-xl border border-[#ede9e3] overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.04)]">
+              {/* Table head */}
+              <div className="grid grid-cols-12 gap-2 px-4 py-2.5 border-b border-[#f0ece6]">
+                <span className="col-span-4 text-[10px] font-semibold text-[#c0bab2] uppercase tracking-wider">Référence</span>
+                <span className="col-span-4 text-[10px] font-semibold text-[#c0bab2] uppercase tracking-wider">Bien</span>
+                <span className="col-span-4 text-[10px] font-semibold text-[#c0bab2] uppercase tracking-wider hidden sm:block">Statut</span>
+              </div>
+
+              {/* Rows */}
+              {[
+                {
+                  ref:   "WS-2025-001",
+                  type:  "Appartement",
+                  city:  "Bruxelles",
+                  stage: "Mandat signé",
+                  badge: "bg-[#635BFF]/10 text-[#635BFF]",
+                },
+                {
+                  ref:   "WS-2025-002",
+                  type:  "Villa",
+                  city:  "Liège",
+                  stage: "Compromis signé",
+                  badge: "bg-amber-50 text-amber-700",
+                },
+                {
+                  ref:   "WS-2025-003",
+                  type:  "Terrain",
+                  city:  "Gand",
+                  stage: "En vérification",
+                  badge: "bg-[#f0ece6] text-[#9d9890]",
+                },
+              ].map((row, i, arr) => (
+                <div
+                  key={row.ref}
+                  className={`grid grid-cols-12 gap-2 items-center px-4 py-3 ${
+                    i < arr.length - 1 ? "border-b border-[#f5f2ee]" : ""
+                  }`}
+                >
+                  <span className="col-span-4 text-[11px] font-mono font-bold text-[#635BFF] tracking-tight">
+                    {row.ref}
+                  </span>
+                  <span className="col-span-4 text-[12px] text-[#1a1916]">
+                    {row.type}{" "}
+                    <span className="text-[#c0bab2]">·</span>{" "}
+                    <span className="text-[#9d9890]">{row.city}</span>
+                  </span>
+                  <span
+                    className={`col-span-4 hidden sm:inline-flex items-center justify-center text-[11px] font-semibold px-2.5 py-1 rounded-full w-fit ${row.badge}`}
+                  >
+                    {row.stage}
+                  </span>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>
