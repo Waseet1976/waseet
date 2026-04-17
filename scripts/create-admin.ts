@@ -11,7 +11,7 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 const ADMIN_EMAIL     = "admin@waseet.be";
-const ADMIN_PASSWORD  = "Admin2024!";
+const ADMIN_PASSWORD  = "Admin2025!";
 const ADMIN_FIRST     = "Admin";
 const ADMIN_LAST      = "Waseet";
 
